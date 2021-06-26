@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>functions</title>
+    <style>
+        body{
+            background-color: lightgreen;
+        }
+        fieldset{
+            margin-top: 100px;
+            width: fit-content;
+            height: fit-content;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 20px 30px 40px black;
+        }
+        label{
+            font-size: 40px;
+        }
+        input{
+            font-size: 30px;
+            border-color: black;
+            border-radius: 10px;
+        }
+        #result{
+            width: 500px;
+            color: red;
+             
+        }
+        button{
+            width: 100px;
+            height: 40px;
+            font-size: 30px;
+            background-color: rgb(70, 70, 139);
+        }
+        button:hover{
+            background-color: green;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <h1>Name: DHARANI K</h1>
+    <h2>USN: 1MJ18CS037</h2>
+    <fieldset>
+    
+        <label>Enter the input:</label>
+        <input type="text" name="input" id="input" placeholder="Enter srting or Integers"><br><br>
+        <button type="submit" id="submit" onclick="fun()">GO</button><br><br>
+        <label>Result:</label>
+        <abbr title="disabled"><input type="text" name="result" id="result" placeholder="your output will appear here" disabled></abbr>  
+    </fieldset>
+    
+<script>
+    function fun(){
+        var str = document.getElementById("input").value;
+        if(str==""){
+            alert("please give an input");
+        }else{
+            if(isNaN(str)){
+                str=str.toUpperCase();
+                for(var i=0;i<str.length;i++){
+                    var char=str.charAt(i);
+                    if(char=="A"||char=="E"||char=="I"||char=="O"||char=="U")
+                    break;
+                }
+
+                if(i<str.length)
+                document.getElementById("result").value = (i+1)+" is the pos of left most vowel";
+                else
+                document.getElementById("result").value = "No vowel found";
+            }
+            else{
+                var str = parseInt(str);
+                var a,b,temp=0;
+                b = str;
+                while(b>0){
+                    a = parseInt(b%10);
+                    b = parseInt(b/10);
+                    temp = temp*10+a;
+                }
+            document.getElementById("result").value = temp+" is the reverse of number";
+        }
+    }
+    }
+    
+</script>
+</center>   
+</body>
+</html>
